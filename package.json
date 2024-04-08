@@ -38,7 +38,7 @@
   "module": "dist/img-crop-react.esm.js",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/xuddd/img-crop-react"
   },
   "size-limit": [
     {
