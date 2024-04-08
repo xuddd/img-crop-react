@@ -91,6 +91,7 @@ const ImageCrop: React.FC<ImageCropProps> = props => {
             resolve(newFile);
           }, file.type, quality);
           setIsShowModal(false);
+          resetModal();
         };
 
         onCancel.current = async function() {
@@ -102,6 +103,11 @@ const ImageCrop: React.FC<ImageCropProps> = props => {
 
     return newFn;
   };
+
+  function resetModal() {
+    setCropImage(null)
+    update(0, 0, 0, 0, 1)
+  }
 
   const getNewUpload = (child: React.ReactNode) => {
     const upload = Array.isArray(child) ? child[0] : child;
@@ -224,13 +230,14 @@ const ImageCrop: React.FC<ImageCropProps> = props => {
 
     const imgEle = getDom('image-media');
     const clipEle = getDom('clip-area');
-    // 计算media与容器的相对位置
-    const childRect = imgEle.getBoundingClientRect();
-    const parentRect = clipEle.getBoundingClientRect();
-
-    const pointX = childRect.left - parentRect.left;
-    const pointY = childRect.top - parentRect.top;
-    // console.log(pointY);
+    let pointX = 0, pointY = 0
+    if(imgEle && clipEle) {
+      // 计算media与容器的相对位置
+      const childRect = imgEle.getBoundingClientRect();
+      const parentRect = clipEle.getBoundingClientRect();
+      pointX = childRect.left - parentRect.left;
+      pointY = childRect.top - parentRect.top;
+    }
     cropSize.current.x = pointX;
     cropSize.current.y = pointY;
   }
