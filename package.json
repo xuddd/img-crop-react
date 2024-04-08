@@ -22,6 +22,14 @@
   "peerDependencies": {
     "react": ">=16"
   },
+  "keywords": [
+    "react",
+    "antd",
+    "ant-design",
+    "upload",
+    "image",
+    "crop"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
