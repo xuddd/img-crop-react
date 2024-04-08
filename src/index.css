@@ -1,0 +1,39 @@
+.image-crop {
+  height: auto;
+}
+
+.image-crop-modal {
+  height: 70vh;
+}
+
+.container {
+  margin: auto;
+  flex: 1;
+  height: 100%;
+  background-color: rgba(0,0,0,0.45);
+  overflow: hidden;
+  position: relative;
+  cursor: move;
+}
+
+.image-media {
+  object-fit: cover;
+  background-color: white;
+  user-select: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  will-change: transform;
+  transform-origin: center;
+  margin: auto;
+}
+
+.clip-area {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0,0,0,0.15);
+}
